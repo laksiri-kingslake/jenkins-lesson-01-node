@@ -1,11 +1,27 @@
-/* Requires the Docker Pipeline plugin */
 pipeline {
-    agent { docker { image 'node:18.18.2-alpine3.18' } }
+    agent any
     stages {
-        stage('build') {
+        stage('Build') {
             steps {
-                sh 'node --version'
+                sh 'echo "Hello World"'
+                sh '''
+                    echo "Multiline shell steps works too"
+                    ls -lah
+                '''
             }
         }
     }
 }
+
+/* Requires the Docker Pipeline plugin */
+//pipeline {
+//    agent { docker { image 'node:18.18.2-alpine3.18' } }
+//    stages {
+//        stage('build') {
+//            steps {
+//                sh 'node --version'
+//            }
+//        }
+//    }
+//}
+
