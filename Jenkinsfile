@@ -4,6 +4,7 @@ pipeline {
     stages {
         stage('build') {
             steps {
+                sh 'npm i'
                 sh 'node index.js'
             }
         }
